@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AcrobatHScene.unity
     guid: debf6a0f865addf48b4d11b9c99266da
+  - enabled: 1
+    path: Assets/Scenes/KnightHScene.unity
+    guid: 94d4f4ba96de3514da74946a81f740c7
+  - enabled: 1
+    path: Assets/Scenes/AlchemHScene.unity
+    guid: 6d388f29f29ac0047beee3b16cb04adf
+  - enabled: 1
+    path: Assets/Scenes/MercenaryHScene.unity
+    guid: e60404d99b780a940a0925c1873fec47
   m_configObjects: {}
