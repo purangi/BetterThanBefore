@@ -377,7 +377,6 @@ MonoBehaviour:
   cursorTextureA: {fileID: 0}
   cursorTextureB: {fileID: 2800000, guid: f91a45d63f013004496e8186d423d0b5, type: 3}
   IsCursorCandle: 0
-  IsCursorKey: 0
 --- !u!1 &246195965
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +645,6 @@ MonoBehaviour:
   cursorTextureA: {fileID: 2800000, guid: f3ba9180700ab4646aa5d89adf96aa11, type: 3}
   cursorTextureB: {fileID: 0}
   IsCursorCandle: 0
-  IsCursorKey: 0
 --- !u!1 &671077543
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +723,7 @@ GameObject:
   - component: {fileID: 752555114}
   - component: {fileID: 752555113}
   - component: {fileID: 752555112}
+  - component: {fileID: 752555115}
   m_Layer: 5
   m_Name: KHPhoto
   m_TagString: Untagged
@@ -794,7 +793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 752555113}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 752555115}
+        m_TargetAssemblyTypeName: KnightHButton, Assembly-CSharp
+        m_MethodName: PhotoClickExpand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &752555113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +844,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752555110}
   m_CullTransparentMesh: 1
+--- !u!114 &752555115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752555110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750aa4cde8208f34ba08ad003244eb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTextureA: {fileID: 0}
+  cursorTextureB: {fileID: 0}
+  IsCursorCandle: 0
 --- !u!1 &1007552467
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +1007,6 @@ MonoBehaviour:
   cursorTextureA: {fileID: 0}
   cursorTextureB: {fileID: 0}
   IsCursorCandle: 0
-  IsCursorKey: 0
 --- !u!1 &1101494823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1261,7 @@ GameObject:
   - component: {fileID: 1418095567}
   - component: {fileID: 1418095566}
   - component: {fileID: 1418095565}
+  - component: {fileID: 1418095568}
   m_Layer: 5
   m_Name: KHLetter
   m_TagString: Untagged
@@ -1259,8 +1285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172.36, y: -52.78}
-  m_SizeDelta: {x: 127.2025, y: 231.14}
+  m_AnchoredPosition: {x: -186.01549, y: -93.56249}
+  m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418095565
 MonoBehaviour:
@@ -1305,7 +1331,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1418095566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1418095568}
+        m_TargetAssemblyTypeName: KnightHButton, Assembly-CSharp
+        m_MethodName: LetterClickExpand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1418095566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,6 +1382,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418095563}
   m_CullTransparentMesh: 1
+--- !u!114 &1418095568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418095563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750aa4cde8208f34ba08ad003244eb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTextureA: {fileID: 0}
+  cursorTextureB: {fileID: 0}
+  IsCursorCandle: 0
 --- !u!1 &1638026200
 GameObject:
   m_ObjectHideFlags: 0
