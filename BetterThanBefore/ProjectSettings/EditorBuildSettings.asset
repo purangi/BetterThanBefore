@@ -6,41 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene1.unity
-    guid: d4e6f0613d1630a45b6317984c5b9034
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene2.unity
-    guid: a745ab2bdc7005342bfaf5cda90a1bce
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene3.unity
-    guid: ba6171a32d1f5044b9fde62dd2b60135
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene4.unity
-    guid: 1c6a79b82c009a641b246608c9df8950
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene5.unity
-    guid: 2cde44ae37b0e084a8ba5b9de43180bc
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene6.unity
-    guid: ebba161915dd2cd4e8438d4446ae619e
-  - enabled: 1
-    path: Assets/Scenes/IntroScene/IntroScene7.unity
-    guid: fc9e4a41c40fe574fbb1f885c42ee4fc
+    path: Assets/Scenes/IntroScene.unity
+    guid: d70b44d922fb2684f8de479e080c2c54
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 126ab9df4cfc3524ba2766d977aadf48
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 667d1e6710eac8a4fb8e8b10d8f75b84
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/KnightHScene.unity
     guid: 94d4f4ba96de3514da74946a81f740c7
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MercenaryHScene.unity
     guid: e60404d99b780a940a0925c1873fec47

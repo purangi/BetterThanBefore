@@ -74,7 +74,6 @@ public class EndingDays : MonoBehaviour
         }
     }
 
-    
     public void ShowHow()
     {
         GameObject obj = GameObject.Find("Canvas").transform.Find("How").gameObject;

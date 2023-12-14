@@ -22,6 +22,7 @@ title: reWanted
 tags:
 ---
 <<show_weakness MHMaster 용병>>
+<<change_despair MHMaster>>
 <color="red">용병 멜리사</color>: <color="red">이, 이걸 어떻게···!</color>
 Player: 살벌하군. <br>망나니 인건 알았는데 이정도로 막 나가는 사람이었을 줄이야. <br>그렇게 빚이 많아도 자신만만하던 건 얼마든지 죽이고 훔치면 되니까라고 생각해서 인가?
 Player: 치가 떨리는군. 이런 범죄자를 더는 내 영지에 둘 수는 없네.
@@ -174,6 +175,7 @@ title: gh
 tags:
 ---
 <<show_weakness MHMaster 용병>>
+<<change_despair MHMaster>>
 <color="red">용병 멜리사</color>: <color="red">이, 이걸 어떻게···!</color>
 Player: 살벌하군. <br>망나니 인건 알았는데 이정도로 막 나가는 사람이었을 줄이야. <br>그렇게 빚이 많아도 자신만만하던 건 얼마든지 죽이고 훔치면 되니까라고 생각해서 인가?
 Player: 치가 떨리는군. 이런 범죄자를 더는 내 영지에 둘 수는 없네.
@@ -181,7 +183,7 @@ Player: 치가 떨리는군. 이런 범죄자를 더는 내 영지에 둘 수는
 Player: 어쨌든 자네가 그 사람의 죽음에 일조한 거지. 끔찍하군. <br>그래도 난 자네 같은 사람이 좋아. 쓰이든 쓰이지 않든 쓸모가 있으니, <br>이 정도 돈이면 우리 영지에 큰 보탬이 되겠어.
 <color="red">용병 멜리사</color>: <color="red">죄송합니다. 죄송합니다 나리! <br>무엇이든 하겠습니다. 무엇이든요! <br>제발 알리지 말아 주세요!</color>
 <<set_result MHMaster 성공 생환_시_많은_돈을_가져옵니다>>
-<<employ_talents MHMaster 기사>>
+<<employ_talents MHMaster 용병>>
 <<increase_atmos MHMaster 15>>
 ===
 title: gn

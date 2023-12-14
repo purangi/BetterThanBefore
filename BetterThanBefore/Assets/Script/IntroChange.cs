@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
 public class IntroChange : MonoBehaviour
 {
+    public VideoPlayer myVideo;
+    public VideoClip[] clips;
+    public GameObject nextBtn;
     string path;
+
+    int sceneNum = 0;
+
+    public float playTime = 0f;
 
     public void Start()
     {
+        playTime = (float) myVideo.length;
+        sceneNum = 0;
         path = Path.Combine(Application.dataPath, "database.json");
 
         if (!File.Exists(path))
@@ -19,30 +30,32 @@ public class IntroChange : MonoBehaviour
                 skip.SetActive(false);
         }
     }
-    public void SceneChange()
+
+    void Update()
     {
-        if(SceneManager.GetActiveScene().name == "IntroScene1")
+        playTime -= Time.deltaTime;
+
+        if (playTime < 0.1f)
         {
-            SceneManager.LoadScene("IntroScene2");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene2")
+            playTime = 0.0f;
+            nextBtn.SetActive(true);
+        }
+    }
+
+    public void VideoChange()
+    {
+        sceneNum++;
+        if (sceneNum < 7)
         {
-            SceneManager.LoadScene("IntroScene3");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene3")
+            nextBtn.SetActive(false);
+            myVideo.clip = clips[sceneNum];
+            myVideo.time = 0f;
+            playTime = (float) myVideo.length;
+            myVideo.Play();
+        } else
         {
-            SceneManager.LoadScene("IntroScene4");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene4")
-        {
-            SceneManager.LoadScene("IntroScene5");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene5")
-        {
-            SceneManager.LoadScene("IntroScene6");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene6")
-        {
-            SceneManager.LoadScene("IntroScene7");
-        } else if(SceneManager.GetActiveScene().name == "IntroScene7")
-        {
-            SceneManager.LoadScene("StartScene");
-        } 
+            SkipScene();
+        }
     }
 
     public void SkipScene()

@@ -2941,7 +2941,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3343310357454680237}
           m_TargetAssemblyTypeName: Yarn.Unity.LineView, YarnSpinner.Unity
-          m_MethodName: OnContinueClicked
+          m_MethodName: UserRequestedViewAdvancement
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
