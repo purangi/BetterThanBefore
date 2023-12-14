@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public int AcrobatVisited;
     public int AlchemVisited;
 
+    public List<Talent> talents;
+
     public int employCommoner;
     public int showCommoner;
 

@@ -1,0 +1,29 @@
+{
+    "gold": 6000,
+    "atmosphere": 0,
+    "dead": 0,
+    "haveWeakness": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "employTalents": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "TalentVisited": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "employCommoner": 0,
+    "getClues": 0,
+    "Days": 1,
+    "TodayVisited": false,
+    "eventAcrobat": false,
+    "eventAlchem": false
+}

@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: 7114690cd498a054090e4137d83501c4
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
+  sourceScripts:
+  - {fileID: 6391573757903218779, guid: 130030db432cd374080e3174dbffab22, type: 3}
+  compileErrors: []
+  serializedDeclarations: []
+  defaultLanguage: ko-KR
+  languagesToSourceAssets: []
+  useAddressableAssets: 0
+  searchAllAssembliesForActions: 1
+  assembliesToSearch: []
+  ListOfFunctions:
+  - Name: KnightVisited
+    ReturnType: -> Int32
+    Parameters: []
+  - Name: MercenaryVisited
+    ReturnType: -> Int32
+    Parameters: []
+  - Name: AlchemVisited
+    ReturnType: -> Int32
+    Parameters: []
+  - Name: AcrobatVisited
+    ReturnType: -> Int32
+    Parameters: []
+  - Name: checkGold
+    ReturnType: -> Boolean
+    Parameters:
+    - talent
+  - Name: checkAtmos
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: checkDismiss
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: CheckWanted
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: CheckDrug
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: CheckRock
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: Random
+    ReturnType: -> Single
+    Parameters: []
+  - Name: RandomRange
+    ReturnType: -> Single
+    Parameters:
+    - minInclusive
+    - maxInclusive
+  - Name: Dice
+    ReturnType: -> Int32
+    Parameters:
+    - sides
+  - Name: Round
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: RoundPlaces
+    ReturnType: -> Single
+    Parameters:
+    - num
+    - places
+  - Name: Floor
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: Ceil
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: Inc
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: Dec
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: Decimal
+    ReturnType: -> Single
+    Parameters:
+    - num
+  - Name: Int
+    ReturnType: -> Int32
+    Parameters:
+    - num
+  - Name: CoolFunction
+    ReturnType: -> Int32
+    Parameters: []
