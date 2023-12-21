@@ -1,67 +1,118 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Yarn.Unity;
 
 public class CommonerEmploy : MonoBehaviour
 {
+    public GameObject employ;
+    public GameObject goldText;
+    [SerializeField]
     private TextMeshProUGUI numberText; //텍스트 객체를 찾아서 저장할 변수 goldEmploy
-    private TextMeshProUGUI numberText2; //atmosEmploy
-    private int commonerNumber; // 직접 선택된 평민 수 얼마인지 나타내주는 변수
-    private GameObject obj;
 
-    public string state;
+    [SerializeField]
+    private ExploreBuild exBuild;
+    [SerializeField]
+    private Item commoners;
+
+    private int state; //gold = 0, atmos = 1;
+    private int commonerNum = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject base1 = GameObject.Find("Canvas").transform.Find("GoldEmploy").gameObject;
-        numberText = base1.transform.Find("CommonerNumber").GetComponent<TextMeshProUGUI>();
-        GameObject base2 = GameObject.Find("Canvas").transform.Find("AtmosEmploy").gameObject;
-        numberText2 = base2.transform.Find("CommonerNumber").GetComponent<TextMeshProUGUI>();
-        obj = GameObject.Find("GameManager");
+        if(state == 0)
+        {
+            goldText.SetActive(true);
+        } else
+        {
+            goldText.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (obj == null)
-        {
-            commonerNumber = 0;
-        }
-        else
-        {
-            commonerNumber = GameManager.instance.showCommoner;
+        
+    }
 
-        }
-        numberText.text = commonerNumber.ToString();
-        numberText2.text = commonerNumber.ToString();
+    [YarnCommand("commoner_employ")]
+    public void commonerEmploy(int num)
+    {
+        employ.SetActive(true);
+        state = num;
     }
 
     public void IncreaseCommoner()
     {
-        if(state == "Gold")
+        if(state == 0)
         {
-            if ((GameManager.instance.showCommoner + 1) * 500 <= GameManager.instance.playerGold)
+            if ((commonerNum + 1) * 500 <= GameManager.instance.playerGold)
             {
-                GameManager.instance.showCommoner += 1;
+                commonerNum++;
             }
         } else
         {
-            GameManager.instance.showCommoner += 1;
+            commonerNum++;
         }
+        ShowGold();
+        numberText.text = commonerNum.ToString();
     }
 
     public void DecreaseCommoner()
     {
-        if (GameManager.instance.showCommoner >= 1)
+        if (commonerNum >= 1)
         {
-            GameManager.instance.showCommoner -= 1;
+            commonerNum--;
         }
         else
         {
-            GameManager.instance.showCommoner = 0;
+            commonerNum = 0;
         }
+        ShowGold();
+    }
+
+    private void ShowGold()
+    {
+        int gold = commonerNum * 500;
+
+        goldText.GetComponent<TextMeshProUGUI>().text = gold.ToString() + "G";
+    }
+
+    //평민 골드 고용
+    public void deGoldEmploy()
+    {
+        //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
+        //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
+
+        if (GameManager.instance.playerGold - 500 * commonerNum >= 0)
+        {
+            GameManager.instance.playerGold -= 500 * commonerNum;
+            exBuild.AcquireCharacter(commoners, commonerNum);
+            GameManager.instance.employCommoner += commonerNum;
+        }
+        else
+        {
+            //고용 실패 -> 아예 막아뒀음
+            /*
+            isCurrentConversation = true;
+            GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
+            DialogueRunner dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
+            dlg.StartDialogue("EmployFail"); */
+        }
+    }
+
+    //평민 협박 고용
+    public void deAtmosEmploy()
+    {
+        //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
+        //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
+
+        GameManager.instance.townAtmosphere += 5 * GameManager.instance.employCommoner;
+        exBuild.AcquireCharacter(commoners, commonerNum);
+        GameManager.instance.employCommoner += commonerNum;
     }
 }

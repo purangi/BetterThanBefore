@@ -6,9 +6,9 @@ title: PlazaDialogue
 tags:
 ---
 -> ► 골드를 주겠네. 자네가 뭘 생각하던 훨씬 많을 거야. 과분할 만큼. 
-	<<gold_employ Plaza>>
+	<<commoner_employ Plaza 0>>
 -> ► 평민 주제에 내 말을 거역한다고? 어리석군.
-	<<atmos_employ Plaza>>
+	<<commoner_employ Plaza 1>>
 ===
 title: ExploreSuccess1
 tags:

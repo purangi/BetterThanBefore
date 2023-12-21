@@ -377,22 +377,6 @@ public class YarnInteractable : MonoBehaviour
         back.SetActive(true);
     }
 
-    [YarnCommand("gold_employ")]
-    public void GoldEmploy()
-    {
-        GameObject obj = GameObject.Find("Canvas").transform.Find("GoldEmploy").gameObject;
-        obj.SetActive(true);
-        GameManager.instance.showCommoner = 0; //ÃÊ±âÈ­
-    }
-
-    [YarnCommand("atmos_employ")]
-    public void AtmosEmploy()
-    {
-        GameObject obj = GameObject.Find("Canvas").transform.Find("AtmosEmploy").gameObject;
-        obj.SetActive(true);
-        GameManager.instance.showCommoner = 0; //ÃÊ±âÈ­
-    }
-
     [YarnCommand("show_weakness")]
     public void ShowWeakness(string weakness)
     {
@@ -413,6 +397,7 @@ public class YarnInteractable : MonoBehaviour
         obj.SetActive(true);
     }
 
+    /*
     //Æò¹Î °ñµå °í¿ë
     public void deGoldEmploy()
     {
@@ -431,10 +416,9 @@ public class YarnInteractable : MonoBehaviour
             isCurrentConversation = true;
             GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
             DialogueRunner dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
-            dlg.StartDialogue("EmployFail"); */
-        }
+            dlg.StartDialogue("EmployFail"); 
+}
     }
-
     //Æò¹Î Çù¹Ú °í¿ë
     public void deAtmosEmploy()
     {
@@ -487,7 +471,7 @@ public class YarnInteractable : MonoBehaviour
 
             GameManager.instance.playerGold -= 2000;
         }
-    }
+    } */
 
     [YarnCommand("increase_gold")]
     public void IncreaseGold(int amount)

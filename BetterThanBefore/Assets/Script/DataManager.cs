@@ -61,7 +61,6 @@ public class DataManager : MonoBehaviour
             GameManager.instance.AcrobatVisited = 0;
 
             GameManager.instance.employCommoner = 0;
-            GameManager.instance.showCommoner = 0;
 
             GameManager.instance.getClues = 0;
 
@@ -100,7 +99,6 @@ public class DataManager : MonoBehaviour
                 GameManager.instance.AlchemVisited = saveData.TalentVisited[3];
 
                 GameManager.instance.employCommoner = saveData.employCommoner;
-                GameManager.instance.showCommoner = 0;
 
                 GameManager.instance.getClues = saveData.getClues;
                 GameManager.instance.Days = saveData.Days;

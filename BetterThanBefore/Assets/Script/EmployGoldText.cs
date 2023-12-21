@@ -27,8 +27,8 @@ public class EmployGoldText : MonoBehaviour
         }
         else
         {
-            goldNumber = GameManager.instance.showCommoner * 500;
+            //goldNumber = GameManager.instance.showCommoner * 500;
         }
-        goldText.text = goldNumber.ToString();
+        goldText.text = goldNumber.ToString() + "G";
     }
 }
