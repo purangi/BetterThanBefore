@@ -71,7 +71,8 @@ public class YarnInteractable : MonoBehaviour
 
     // make character not able to be clicked on
     //public void DisableConversation();
-    public void ObjectClicked()
+    /* // GameManager·Î ÀÌµ¿
+    public void ObjectClicked(string node)
     {
         GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
         dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
@@ -80,9 +81,9 @@ public class YarnInteractable : MonoBehaviour
         if (interactable && !dlg.IsDialogueRunning)
         {
             // then run this character's conversation
-            dlg.StartDialogue(conversationStartNode);
+            dlg.StartDialogue(node);
         }
-    }
+    }*/
 
     [YarnCommand("end_dialogue")]
     public void EndDialogue()
@@ -397,39 +398,6 @@ public class YarnInteractable : MonoBehaviour
         obj.SetActive(true);
     }
 
-    /*
-    //Æò¹Î °ñµå °í¿ë
-    public void deGoldEmploy()
-    {
-        ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
-        Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
-
-        if (GameManager.instance.playerGold - 500 * GameManager.instance.showCommoner >= 0)
-        {
-            GameManager.instance.playerGold -= 500 * GameManager.instance.showCommoner;
-            ex.AcquireCharacter(commoner, GameManager.instance.showCommoner);
-            GameManager.instance.employCommoner += GameManager.instance.showCommoner;
-        } else
-        {
-            //°í¿ë ½ÇÆÐ -> ¾Æ¿¹ ¸·¾Æµ×À½
-            /*
-            isCurrentConversation = true;
-            GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
-            DialogueRunner dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
-            dlg.StartDialogue("EmployFail"); 
-}
-    }
-    //Æò¹Î Çù¹Ú °í¿ë
-    public void deAtmosEmploy()
-    {
-        ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
-        Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
-
-        GameManager.instance.townAtmosphere += 5 * GameManager.instance.employCommoner;
-        ex.AcquireCharacter(commoner, GameManager.instance.showCommoner);
-        GameManager.instance.employCommoner += GameManager.instance.showCommoner;
-    }
-
     [YarnCommand("decrease_gold")]
     public void DecreaseGold(string type)
     {
@@ -471,7 +439,7 @@ public class YarnInteractable : MonoBehaviour
 
             GameManager.instance.playerGold -= 2000;
         }
-    } */
+    } 
 
     [YarnCommand("increase_gold")]
     public void IncreaseGold(int amount)

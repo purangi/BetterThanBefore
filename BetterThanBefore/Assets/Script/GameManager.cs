@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
     public bool eventAcrobat;
     public bool eventAlchem;
 
+    private DialogueRunner dlg;
+
     void Start()
     {
         //GameObject inven = GameObject.Find("go_InventoryBase");
@@ -50,5 +53,18 @@ public class GameManager : MonoBehaviour
     void Awake()
     { 
         instance = this;
+    }
+
+    public void ObjectClicked(string node, bool interactable)
+    {
+        GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
+        dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
+
+        // if this character is enabled and no conversation is already running
+        if (interactable && !dlg.IsDialogueRunning)
+        {
+            // then run this character's conversation
+            dlg.StartDialogue(node);
+        }
     }
 }

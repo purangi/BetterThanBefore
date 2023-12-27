@@ -24,13 +24,7 @@ public class CommonerEmploy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(state == 0)
-        {
-            goldText.SetActive(true);
-        } else
-        {
-            goldText.SetActive(false);
-        }
+        
     }
 
     // Update is called once per frame
@@ -38,12 +32,24 @@ public class CommonerEmploy : MonoBehaviour
     {
         
     }
+    public void plazaDialogue()
+    {
+        GameManager.instance.ObjectClicked("PlazaDialogue", true);
+    }
 
     [YarnCommand("commoner_employ")]
     public void commonerEmploy(int num)
     {
         employ.SetActive(true);
         state = num;
+        if (state == 0)
+        {
+            goldText.SetActive(true);
+        }
+        else
+        {
+            goldText.SetActive(false);
+        }
     }
 
     public void IncreaseCommoner()
@@ -58,8 +64,7 @@ public class CommonerEmploy : MonoBehaviour
         {
             commonerNum++;
         }
-        ShowGold();
-        numberText.text = commonerNum.ToString();
+        setNum(commonerNum);
     }
 
     public void DecreaseCommoner()
@@ -72,18 +77,38 @@ public class CommonerEmploy : MonoBehaviour
         {
             commonerNum = 0;
         }
-        ShowGold();
+        setNum(commonerNum);
     }
 
-    private void ShowGold()
+    public void exitEmploy()
     {
-        int gold = commonerNum * 500;
+        setNum(0);
+        employ.SetActive(false);
+    }
 
+    private void setNum(int num)
+    {
+        commonerNum = num;
+        numberText.text = num.ToString();
+        int gold = num * 500;
         goldText.GetComponent<TextMeshProUGUI>().text = gold.ToString() + "G";
     }
 
+    public void Employ()
+    {
+        if(state == 0)
+        {
+            deGoldEmploy();
+        } else
+        {
+            deAtmosEmploy();
+        }
+        setNum(0);
+        employ.SetActive(false);
+    }
+
     //Æò¹Î °ñµå °í¿ë
-    public void deGoldEmploy()
+    private void deGoldEmploy()
     {
         //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
         //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
@@ -106,7 +131,7 @@ public class CommonerEmploy : MonoBehaviour
     }
 
     //Æò¹Î Çù¹Ú °í¿ë
-    public void deAtmosEmploy()
+    private void deAtmosEmploy()
     {
         //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
         //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
