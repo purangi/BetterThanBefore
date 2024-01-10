@@ -7,6 +7,7 @@ using System.IO;
 [System.Serializable]
 public class SaveData
 {
+    /*
     public int gold;
     public int atmosphere;
     public int dead;
@@ -21,10 +22,12 @@ public class SaveData
     public bool TodayVisited;
     public bool eventAcrobat;
     public bool eventAlchem;
+    */
 }
 
 public class DataManager : MonoBehaviour
 {
+    /*
     string path;
 
     // Start is called before the first frame update
@@ -151,4 +154,6 @@ public class DataManager : MonoBehaviour
         Debug.Log("저장 완료");
         Debug.Log(json);
     }
+
+    */
 }

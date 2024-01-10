@@ -37,12 +37,12 @@ public class GameManager : MonoBehaviour
 
     public int Days;
 
-    public bool TodayVisited;
-
     public bool eventAcrobat;
     public bool eventAlchem;
 
     private DialogueRunner dlg;
+
+    bool interactable = true;
 
     void Start()
     {
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public void ObjectClicked(string node, bool interactable)
+    public void ObjectClicked(string node)
     {
         GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
         dlg = obj.transform.Find("DialogueRunner").GetComponent<DialogueRunner>();
@@ -66,5 +66,25 @@ public class GameManager : MonoBehaviour
             // then run this character's conversation
             dlg.StartDialogue(node);
         }
+    }
+
+    public bool TodayVisited()
+    {
+        bool todayVisited = false;
+
+        foreach (Talent tlt in talents)
+        {
+            if (tlt.IsVisited == true)
+            {
+                todayVisited = true;
+            }
+        }
+
+        return todayVisited;
+    }
+
+    public void NextDay()
+    {
+
     }
 }

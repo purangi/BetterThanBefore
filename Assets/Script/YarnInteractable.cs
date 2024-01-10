@@ -456,6 +456,8 @@ public class YarnInteractable : MonoBehaviour
     [YarnCommand("set_visited")]
     public void SetVisited(string talent, int num)
     {
+        //¹Ù²Ü ¿¹Á¤
+        /* 
         if(num != 2)
         {
             GameManager.instance.TodayVisited = true;
@@ -476,6 +478,6 @@ public class YarnInteractable : MonoBehaviour
         else if (talent == "°î¿¹»ç")
         {
             GameManager.instance.AcrobatVisited = num;
-        }
+        } */
     }
 }

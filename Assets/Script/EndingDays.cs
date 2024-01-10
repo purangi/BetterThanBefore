@@ -32,10 +32,11 @@ public class EndingDays : MonoBehaviour
         if (GameManager.instance.Days == 1)
         {
             day_text.text = "첫째 날";
+            /*
             if(!GameManager.instance.TodayVisited)
             {
                 ShowHow();
-            }
+            }*/
         } else if(GameManager.instance.Days == 2)
         {
             day_text.text = "둘째 날";
@@ -102,8 +103,8 @@ public class EndingDays : MonoBehaviour
             }
         } else //이벤트 발생 가능
         {
-            if (!GameManager.instance.TodayVisited)
-            {
+            //if (!GameManager.instance.TodayVisited)
+            //{
                 if (GameManager.instance.eventAcrobat || GameManager.instance.eventAlchem)
                 {
                     if (GameManager.instance.eventAcrobat)
@@ -180,7 +181,7 @@ public class EndingDays : MonoBehaviour
                         }
                     }
                 }
-            }
+            //}
         }
     }
 

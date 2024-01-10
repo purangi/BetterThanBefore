@@ -201,6 +201,7 @@ public class ExploreResult : MonoBehaviour
         obj.transform.SetAsLastSibling();
         Image Fade = obj.GetComponent<Image>();
 
+        //day 넘기는거 GameManager로 구현 예정
         GameManager.instance.Days += 1;
 
         if (GameManager.instance.Days == 1)
@@ -269,7 +270,8 @@ public class ExploreResult : MonoBehaviour
         c.a = 0f;
         Fade.color = c;
         day_text.color = new Color32(255, 255, 255, 0);
-        GameManager.instance.TodayVisited = false;
+        //여기서 구현 안할거임
+        //GameManager.instance.TodayVisited = false;
         obj.transform.SetAsFirstSibling();
 
         CheckEnding();

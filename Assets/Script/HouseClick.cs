@@ -78,7 +78,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetVisiting();
 
-        if(!GameManager.instance.TodayVisited && (GameManager.instance.playerGold > visitingGold))
+        if(/*!GameManager.instance.TodayVisited && */(GameManager.instance.playerGold > visitingGold))
         {
             if(visitedCheck == 1 && weakness)
             {
@@ -102,7 +102,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetVisiting();
 
-        if (visitedCheck == 0 && GameManager.instance.TodayVisited)
+        if (visitedCheck == 0 /* && GameManager.instance.TodayVisited */)
         {
             OpenPOPUP("하루에 한 곳만 방문할 수 있습니다.");
         }
@@ -111,10 +111,13 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if(!weakness)
             {
                 OpenPOPUP("인재가 영지를 떠났습니다.");
-            } else if(GameManager.instance.TodayVisited)
+            } 
+            //Talent로 구현할거라 바꿔야됨
+            /*else if(GameManager.instance.TodayVisited)
             {
                 OpenPOPUP("이미 고용 중인 인재입니다.");
-            } else
+            } */
+            else
             {
                 SceneManager.LoadScene(sceneName);
             }

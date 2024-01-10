@@ -34,7 +34,7 @@ public class CommonerEmploy : MonoBehaviour
     }
     public void plazaDialogue()
     {
-        GameManager.instance.ObjectClicked("PlazaDialogue", true);
+        GameManager.instance.ObjectClicked("PlazaDialogue");
     }
 
     [YarnCommand("commoner_employ")]
