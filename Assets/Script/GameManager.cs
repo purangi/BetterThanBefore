@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public List<Talent> talents;
 
     public int employCommoner;
-    //public int showCommoner;
 
     public int getClues;
 
