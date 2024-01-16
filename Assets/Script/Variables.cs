@@ -51,6 +51,7 @@ public class Variables : MonoBehaviour
         }
     }
 
+    /*
     [YarnFunction("knight_visited")]
     public static int KnightVisited()
     {
@@ -130,7 +131,7 @@ public class Variables : MonoBehaviour
         {
             return 5;
         }
-    }
+    } */
 
     [YarnFunction("check_gold")]
     public static bool checkGold(string talent) 
@@ -178,6 +179,9 @@ public class Variables : MonoBehaviour
         }
     }
 
+    //TODO:YarnFunction Á¤¸®
+
+    /*
     [YarnFunction("check_dismiss")]
     public static bool checkDismiss()
     {
@@ -265,4 +269,6 @@ public class Variables : MonoBehaviour
             }
         }
     }
+
+    */
 }

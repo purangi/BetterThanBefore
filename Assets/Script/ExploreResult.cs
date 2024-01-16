@@ -136,6 +136,7 @@ public class ExploreResult : MonoBehaviour
             }
         } else
         {
+            /* // TODO: 고용 수정
             if(item.itemName == "Knight")
             {
                 GameManager.instance.KnightVisited = 5;
@@ -155,7 +156,7 @@ public class ExploreResult : MonoBehaviour
             } else
             {
                 Debug.Log("평민 죽음");
-            }
+            } */
 
             GameManager.instance.townDead += 1;
         }
@@ -165,6 +166,7 @@ public class ExploreResult : MonoBehaviour
 
     private void EmployTalents(Item item) //재고용 설계 필요
     {
+        /* //TODO : 재고용 설계
         if(item.itemName == "Knight")
         {
             if(GameManager.instance.KnightVisited != 4) //재고용일때는 안변함
@@ -192,7 +194,7 @@ public class ExploreResult : MonoBehaviour
                 GameManager.instance.employAcrobat = false;
             }
             
-        }
+        } */
     }
 
     public IEnumerator FadeOut()

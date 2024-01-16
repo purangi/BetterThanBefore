@@ -18,7 +18,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public Sprite basicImage; //기본 테두리 이미지
     public string sceneName; //씬 이름
 
-    private int visitedCheck;
+    private bool visitedCheck;
     private int visitingGold;
     private bool weakness;
 
@@ -42,33 +42,35 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void SetVisiting()
     {
+        List<Talent> talents = GameManager.instance.talents;
+
         if (sceneName == "KnightHScene")
         {
-            visitedCheck = GameManager.instance.KnightVisited;
+            visitedCheck = talents[0].isVisited;
             visitingGold = 1500;
-            weakness = GameManager.instance.haveDismissal;
+            weakness = talents[0].haveWeakness;
         }
         else if (sceneName == "MercenaryHScene")
         {
-            visitedCheck = GameManager.instance.MercenaryVisited;
+            visitedCheck = talents[1].isVisited;
             visitingGold = 2500;
-            weakness = GameManager.instance.haveWanted;
+            weakness = talents[1].haveWeakness;
         }
         else if (sceneName == "AlchemHScene")
         {
-            visitedCheck = GameManager.instance.AlchemVisited;
+            visitedCheck = talents[2].isVisited;
             visitingGold = 2500;
-            weakness = GameManager.instance.haveRock;
+            weakness = talents[1].haveWeakness;
         }
         else if (sceneName == "AcrobatHScene")
         {
-            visitedCheck = GameManager.instance.AcrobatVisited;
+            visitedCheck = talents[3].isVisited;
             visitingGold = 2000;
-            weakness = GameManager.instance.haveDrug;
+            weakness = talents[1].haveWeakness;
         }
         else
         {
-            visitedCheck = 6;
+            //visitedCheck = 6;
             visitingGold = 0;
             weakness = false;
         }
@@ -78,9 +80,9 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetVisiting();
 
-        if(/*!GameManager.instance.TodayVisited && */(GameManager.instance.playerGold > visitingGold))
+        if(!GameManager.instance.TodayVisited() && (GameManager.instance.playerGold > visitingGold))
         {
-            if(visitedCheck == 1 && weakness)
+            if(visitedCheck && weakness) //TODO: visitedCheck 분리 수정
             {
                 FirstImage.sprite = cantImage;
             } else
@@ -102,7 +104,8 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetVisiting();
 
-        if (visitedCheck == 0 /* && GameManager.instance.TodayVisited */)
+        /* //visitedcheck 번호 분리
+        if (visitedCheck == 0  && GameManager.instance.TodayVisited())
         {
             OpenPOPUP("하루에 한 곳만 방문할 수 있습니다.");
         }
@@ -113,10 +116,10 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 OpenPOPUP("인재가 영지를 떠났습니다.");
             } 
             //Talent로 구현할거라 바꿔야됨
-            /*else if(GameManager.instance.TodayVisited)
+            else if(GameManager.instance.TodayVisited())
             {
                 OpenPOPUP("이미 고용 중인 인재입니다.");
-            } */
+            } 
             else
             {
                 SceneManager.LoadScene(sceneName);
@@ -140,7 +143,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else
         {
             SceneManager.LoadScene(sceneName);
-        }
+        }*/
     }
 
     public void InvenOpen() //인벤토리 오픈

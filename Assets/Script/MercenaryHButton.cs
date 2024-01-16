@@ -112,6 +112,7 @@ public class MercenaryHButton : MonoBehaviour
 
     public void GetWanted()
     {
+        /*
         GameObject obj = GameObject.Find("GameManager");
         if (obj == null)
         {
@@ -122,5 +123,6 @@ public class MercenaryHButton : MonoBehaviour
         {
             GameManager.instance.haveWanted = true;
         }
+        */
     }
 }

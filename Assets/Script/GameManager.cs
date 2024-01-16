@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int townAtmosphere;
     public int townDead;
 
+    /*
     public bool haveDismissal; //해임서 들고 있음
     public bool haveWanted;
     public bool haveRock;
@@ -21,13 +22,15 @@ public class GameManager : MonoBehaviour
     public bool employAcrobat;
     public bool employAlchem;
 
-    //방문 여부 0 -> 첫방문 / 1 -> 고용 후 재방문 / 2 -> 골드부족으로 미고용 후 재방문
-    // 3 -> 방문 불가 / 4 -> 재고용됨 / 5 -> 사망함
-    public int KnightVisited; 
+    public int KnightVisited;
     public int MercenaryVisited;
     public int AcrobatVisited;
-    public int AlchemVisited;
+    public int AlchemVisited; */
 
+    //방문 여부 0 -> 첫방문 / 1 -> 고용 후 재방문 / 2 -> 골드부족으로 미고용 후 재방문
+    // 3 -> 방문 불가 / 4 -> 재고용됨 / 5 -> 사망함
+    // 이중에 5는 Die로 분리 가능
+    //1,2의 경우는 다 방 Class 만들어서 하면 따로 구분 가능할듯?
     public List<Talent> talents;
 
     public int employCommoner;
@@ -54,6 +57,15 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    public void StartGame() //0 기사 1 용병 2 곡예사 3 연금술사
+    {
+        //저장 파일 없다면 추가
+        talents.Add(new Talent("기사"));
+        talents.Add(new Talent("용병"));
+        talents.Add(new Talent("곡예사"));
+        talents.Add(new Talent("연금술사"));
+    }
+
     public void ObjectClicked(string node)
     {
         GameObject obj = GameObject.Find("Canvas").transform.Find("Dialogue").gameObject;
@@ -73,7 +85,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Talent tlt in talents)
         {
-            if (tlt.IsVisited == true)
+            if (tlt.isVisited == true)
             {
                 todayVisited = true;
             }

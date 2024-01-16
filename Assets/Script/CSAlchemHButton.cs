@@ -21,6 +21,7 @@ public class CSAlchemHButton : MonoBehaviour
 
     public bool IsCursorAssemble = false;
 
+    private List<Talent> talents = GameManager.instance.talents;
     void Start()
     {
     }
@@ -88,7 +89,7 @@ public class CSAlchemHButton : MonoBehaviour
         GameObject obj = GameObject.Find("Canvas").transform.Find("AHChemicalFlask").gameObject;
         CSAlchemHButton ab = obj.GetComponent<CSAlchemHButton>();
 
-        if (ab.IsCursorDrug == true && !GameManager.instance.haveRock)
+        if (ab.IsCursorDrug == true && !talents[3].haveWeakness)
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
@@ -123,11 +124,13 @@ public class CSAlchemHButton : MonoBehaviour
         GameObject obj = GameObject.Find("GameManager");
         if (obj == null)
         {
-            GameManager.instance.haveRock = false;
+            talents[3].haveWeakness = false;
         }
         else
         {
-            GameManager.instance.haveRock = true;
+            talents[3].haveWeakness = true;
         }
+
+        GameManager.instance.talents = talents;
     }
 }

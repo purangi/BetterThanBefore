@@ -26,6 +26,8 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     GameObject drugObj;
 
+    private List<Talent> talents = GameManager.instance.talents;
+
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
@@ -66,33 +68,29 @@ public class Inventory : MonoBehaviour
 
     public void CheckInventory()
     {
-        GameObject obj = GameObject.Find("GameManager");
         Inventory inven = GameObject.Find("Inventory").GetComponent<Inventory>();
 
-        if (obj != null)
+        if (talents[0].haveWeakness == true)
         {
-            if (GameManager.instance.haveDismissal == true)
-            {
-                inven.AcquireItem(dismissalObj.transform.GetComponent<ItemPickUp>().item);
-            }
-
-            if (GameManager.instance.haveWanted == true)
-            {
-                inven.AcquireItem(wantedObj.transform.GetComponent<ItemPickUp>().item);
-            }
-
-            if (GameManager.instance.haveRock == true)
-            {
-                inven.AcquireItem(rockObj.transform.GetComponent<ItemPickUp>().item);
-            }
-
-            if (GameManager.instance.haveDrug == true)
-            {
-                inven.AcquireItem(drugObj.transform.GetComponent<ItemPickUp>().item);
-            }
+            inven.AcquireItem(dismissalObj.transform.GetComponent<ItemPickUp>().item);
         }
 
-        for(int i = 1; i <= 5; i++)
+        if (talents[1].haveWeakness == true)
+        {
+            inven.AcquireItem(wantedObj.transform.GetComponent<ItemPickUp>().item);
+        }
+
+        if (talents[2].haveWeakness == true)
+        {
+            inven.AcquireItem(rockObj.transform.GetComponent<ItemPickUp>().item);
+        }
+
+        if (talents[3].haveWeakness == true)
+        {
+            inven.AcquireItem(drugObj.transform.GetComponent<ItemPickUp>().item);
+        }
+
+        for (int i = 1; i <= 5; i++)
         {
             if (GameManager.instance.getClues == i)
             {

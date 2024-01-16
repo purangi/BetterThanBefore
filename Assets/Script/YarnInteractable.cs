@@ -265,16 +265,16 @@ public class YarnInteractable : MonoBehaviour
     {
         if (talent == "기사")
         {
-            GameManager.instance.employKnight = true;
+            GameManager.instance.talents[0].isEmployed = true;
         } else if (talent == "용병")
         {
-            GameManager.instance.employMercenary = true;
+            GameManager.instance.talents[1].isEmployed = true;
         } else if (talent == "곡예사")
         {
-            GameManager.instance.employAcrobat = true;
+            GameManager.instance.talents[2].isEmployed = true;
         } else if (talent == "연금술사")
         {
-            GameManager.instance.employAlchem = true;
+            GameManager.instance.talents[3].isEmployed = true;
         }
     }
 
@@ -384,16 +384,16 @@ public class YarnInteractable : MonoBehaviour
         GameObject obj = GameObject.Find("Canvas").transform.Find("ShowWeakness").gameObject;
         if(weakness == "기사")
         {
-            GameManager.instance.haveDismissal = false;
+            GameManager.instance.talents[0].haveWeakness = false;
         } else if(weakness == "용병")
         {
-            GameManager.instance.haveWanted = false;
+            GameManager.instance.talents[1].haveWeakness = false;
         } else if(weakness == "곡예사")
         {
-            GameManager.instance.haveDrug = false;
+            GameManager.instance.talents[2].haveWeakness = false;
         } else if(weakness == "연금술사")
         {
-            GameManager.instance.haveRock = false;
+            GameManager.instance.talents[3].haveWeakness = false;
         }
         obj.SetActive(true);
     }

@@ -134,6 +134,8 @@ public class CSAcrobatHButton : MonoBehaviour
 
     public void GetDrug()
     {
+        //TODO: 어따 쓴거임?
+        /*
         GameObject obj = GameObject.Find("GameManager");
         if (obj == null)
         {
@@ -142,7 +144,7 @@ public class CSAcrobatHButton : MonoBehaviour
         else
         {
             GameManager.instance.haveDrug = true;
-        }
+        } */
     }
 
 }

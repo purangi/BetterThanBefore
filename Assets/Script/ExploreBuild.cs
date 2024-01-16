@@ -27,6 +27,8 @@ public class ExploreBuild : MonoBehaviour
     [SerializeField]
     GameObject Alchem;
 
+    private List<Talent> talents = GameManager.instance.talents;
+
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
@@ -54,32 +56,27 @@ public class ExploreBuild : MonoBehaviour
 
     public void CheckEmploy()
     {
-        GameObject obj = GameObject.Find("GameManager");
-
-        if (obj != null)
+        ExploreBuild exp = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
+        if (talents[0].isEmployed)
         {
-            ExploreBuild exp = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
-            if (GameManager.instance.employKnight == true)
-            {
-                exp.AcquireCharacter(Knight.transform.GetComponent<ItemPickUp>().item, 1);
-            }
-            if(GameManager.instance.employMercenary == true)
-            {
-                exp.AcquireCharacter(Mercenary.transform.GetComponent<ItemPickUp>().item, 1);
-            }
-            if (GameManager.instance.employAlchem == true)
-            {
-                exp.AcquireCharacter(Alchem.transform.GetComponent<ItemPickUp>().item, 1);
-            }
-            if (GameManager.instance.employAcrobat == true)
-            {
-                exp.AcquireCharacter(Acrobat.transform.GetComponent<ItemPickUp>().item, 1);
-            }
-            if (GameManager.instance.employCommoner >= 1)
-            {
-                Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
-                exp.AcquireCharacter(commoner, GameManager.instance.employCommoner);
-            }
+            exp.AcquireCharacter(Knight.transform.GetComponent<ItemPickUp>().item, 1);
+        }
+        if (talents[1].isEmployed)
+        {
+            exp.AcquireCharacter(Mercenary.transform.GetComponent<ItemPickUp>().item, 1);
+        }
+        if (talents[3].isEmployed)
+        {
+            exp.AcquireCharacter(Alchem.transform.GetComponent<ItemPickUp>().item, 1);
+        }
+        if (talents[2].isEmployed)
+        {
+            exp.AcquireCharacter(Acrobat.transform.GetComponent<ItemPickUp>().item, 1);
+        }
+        if (GameManager.instance.employCommoner >= 1)
+        {
+            Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
+            exp.AcquireCharacter(commoner, GameManager.instance.employCommoner);
         }
     }
 

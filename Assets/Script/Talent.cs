@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class Talent : MonoBehaviour
 {
-    private bool haveWeakness;
-    private bool isEmployed;
-    private bool isVisited;
+    private string name;
+    public bool haveWeakness { get; set; }
+    public bool isEmployed { get; set; }
+    public bool isVisited { get; set; }
+    public bool isAlive { get; set; }
 
-    public Talent(bool haveWeakness, bool isEmployed, bool isVisited)
+    public Talent(string _name)
     {
-        this.haveWeakness = haveWeakness;
-        this.isEmployed = isEmployed;
-        this.isVisited = isVisited;
-    }
-
-    public bool HaveWeakness
-    {
-        get { return haveWeakness; }
-        set { haveWeakness = value; }
-    }
-
-    public bool IsEmployed
-    {
-        get { return isEmployed; }
-        set { isEmployed = value; }
-    }
-
-    public bool IsVisited
-    {
-        get { return isVisited; }
-        set { isVisited = value; }
+        name = _name;
+        haveWeakness = false;
+        isEmployed = false;
+        isVisited = false;
+        isAlive = true;
     }
 }
