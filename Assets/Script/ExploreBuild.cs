@@ -27,10 +27,12 @@ public class ExploreBuild : MonoBehaviour
     [SerializeField]
     GameObject Alchem;
 
-    private List<Talent> talents = GameManager.instance.talents;
+    private List<Talent> talents = new List<Talent>();
 
     void Start()
     {
+        talents = GameManager.instance.talents;
+
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
         slots2 = go_SlotsParent2.GetComponentsInChildren<Slot>();
 
