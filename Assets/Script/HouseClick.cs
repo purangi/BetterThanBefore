@@ -42,7 +42,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void SetVisiting()
     {
-        List<Talent> talents = GameManager.instance.talents;
+        List<Talent> talents = GameManager.Instance.talents;
 
         if (sceneName == "KnightHScene")
         {
@@ -80,7 +80,7 @@ public class HouseClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetVisiting();
 
-        if(!GameManager.instance.TodayVisited() && (GameManager.instance.playerGold > visitingGold))
+        if(!GameManager.Instance.TodayVisited() && (GameManager.Instance.playerGold > visitingGold))
         {
             if(visitedCheck && weakness) //TODO: visitedCheck 분리 수정
             {

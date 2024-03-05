@@ -36,11 +36,11 @@ public class KnightHButton : MonoBehaviour
         if (obj == null)
         {
             Debug.Log("ÇØÀÓ¼­ È¹µæ Àß¸øµÈ °æ·Î");
-            GameManager.instance.talents[0].haveWeakness = false;
+            GameManager.Instance.talents[0].haveWeakness = false;
         }
         else
         {
-            GameManager.instance.talents[0].haveWeakness = true;
+            GameManager.Instance.talents[0].haveWeakness = true;
         }
         /*
         GameObject obj = GameObject.Find("Canvas").transform.Find("Inventory").gameObject;

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletoneBase<GameManager>
 {
-    public static GameManager instance;
-
     public int playerGold;
     public int townAtmosphere;
     public int townDead;
@@ -46,24 +44,18 @@ public class GameManager : MonoBehaviour
 
     bool interactable = true;
 
-    void Start()
-    {
-        //GameObject inven = GameObject.Find("go_InventoryBase");
-        //inven.SetActive(false);
-    }
-
     void Awake()
-    { 
-        instance = this;
+    {
+        isDontDestroy = true; //방 왕복할때 true 필요
     }
 
-    public void StartGame() //0 기사 1 용병 2 곡예사 3 연금술사
+    public void CreateTalents() //0 기사 1 용병 2 곡예사 3 연금술사
     {
         //저장 파일 없다면 추가
-        talents.Add(new Talent("기사"));
-        talents.Add(new Talent("용병"));
-        talents.Add(new Talent("곡예사"));
-        talents.Add(new Talent("연금술사"));
+        talents.Add(new Talent("기사", JobType.Knight));
+        talents.Add(new Talent("용병", JobType.Mercenary));
+        talents.Add(new Talent("곡예사", JobType.Acrobat));
+        talents.Add(new Talent("연금술사", JobType.Alchem));
     }
 
     public void ObjectClicked(string node)

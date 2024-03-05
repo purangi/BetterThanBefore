@@ -29,7 +29,7 @@ public class EndingDays : MonoBehaviour
 
     public void ShowDate()
     {
-        if (GameManager.instance.Days == 1)
+        if (GameManager.Instance.Days == 1)
         {
             day_text.text = "첫째 날";
             /*
@@ -37,39 +37,39 @@ public class EndingDays : MonoBehaviour
             {
                 ShowHow();
             }*/
-        } else if(GameManager.instance.Days == 2)
+        } else if(GameManager.Instance.Days == 2)
         {
             day_text.text = "둘째 날";
         }
-        else if (GameManager.instance.Days == 3)
+        else if (GameManager.Instance.Days == 3)
         {
             day_text.text = "셋째 날";
         }
-        else if (GameManager.instance.Days == 4)
+        else if (GameManager.Instance.Days == 4)
         {
             day_text.text = "넷째 날";
         }
-        else if (GameManager.instance.Days == 5)
+        else if (GameManager.Instance.Days == 5)
         {
             day_text.text = "다섯째 날";
         }
-        else if (GameManager.instance.Days == 6)
+        else if (GameManager.Instance.Days == 6)
         {
             day_text.text = "여섯째 날";
         }
-        else if (GameManager.instance.Days == 7)
+        else if (GameManager.Instance.Days == 7)
         {
             day_text.text = "일곱째 날";
         }
-        else if (GameManager.instance.Days == 8)
+        else if (GameManager.Instance.Days == 8)
         {
             day_text.text = "여덟째 날";
         }
-        else if (GameManager.instance.Days == 9)
+        else if (GameManager.Instance.Days == 9)
         {
             day_text.text = "아홉째 날";
         }
-        else if (GameManager.instance.Days == 10)
+        else if (GameManager.Instance.Days == 10)
         {
             day_text.text = "열째 날";
         }
@@ -83,18 +83,18 @@ public class EndingDays : MonoBehaviour
 
     public void CheckEnding()
     {
-        if(GameManager.instance.Days >= 11)
+        if(GameManager.Instance.Days >= 11)
         {
-            if(GameManager.instance.getClues < 5)
+            if(GameManager.Instance.getClues < 5)
             {
                 Debug.Log("배드엔딩");
             }
-        } else if(GameManager.instance.townDead >= 20)
+        } else if(GameManager.Instance.townDead >= 20)
         {
             Debug.Log("배드엔딩");
-        } else if(GameManager.instance.getClues == 5)
+        } else if(GameManager.Instance.getClues == 5)
         {
-            if(GameManager.instance.townAtmosphere > 50)
+            if(GameManager.Instance.townAtmosphere > 50)
             {
                 Debug.Log("노말 엔딩");
             } else
@@ -105,18 +105,18 @@ public class EndingDays : MonoBehaviour
         {
             //if (!GameManager.instance.TodayVisited)
             //{
-                if (GameManager.instance.eventAcrobat || GameManager.instance.eventAlchem)
+                if (GameManager.Instance.eventAcrobat || GameManager.Instance.eventAlchem)
                 {
-                    if (GameManager.instance.eventAcrobat)
+                    if (GameManager.Instance.eventAcrobat)
                     {
                         AcrobatEv();
                     }
-                    if (GameManager.instance.eventAlchem)
+                    if (GameManager.Instance.eventAlchem)
                     {
                         AlchemEv();
                     }
                 }
-                else if (GameManager.instance.Days >= 2 && GameManager.instance.Days < 6)
+                else if (GameManager.Instance.Days >= 2 && GameManager.Instance.Days < 6)
                 {
                     int eventHappen = Random.Range(0, 2);
                     if (eventHappen == 0)
@@ -133,7 +133,7 @@ public class EndingDays : MonoBehaviour
                                 HarvestEv();
                                 break;
                             case 1:
-                                if (GameManager.instance.townAtmosphere > 50)
+                                if (GameManager.Instance.townAtmosphere > 50)
                                 {
                                     SacrificeEv();
                                 }
@@ -147,7 +147,7 @@ public class EndingDays : MonoBehaviour
                         }
                     }
                 }
-                else if (GameManager.instance.Days >= 6)
+                else if (GameManager.Instance.Days >= 6)
                 {
                     int eventHappen = Random.Range(0, 2);
                     if (eventHappen == 0)
@@ -164,7 +164,7 @@ public class EndingDays : MonoBehaviour
                                 HarvestEv();
                                 break;
                             case 1:
-                                if (GameManager.instance.townAtmosphere > 50)
+                                if (GameManager.Instance.townAtmosphere > 50)
                                 {
                                     SacrificeEv();
                                 }
@@ -192,7 +192,7 @@ public class EndingDays : MonoBehaviour
         Harvest.SetActive(true);
         int change = Random.Range(2, 5) * 500;
         HarEvent.text = change.ToString() + " 골드가 증가합니다.";
-        GameManager.instance.playerGold += change;
+        GameManager.Instance.playerGold += change;
     }
 
     public void SacrificeEv()
@@ -202,7 +202,7 @@ public class EndingDays : MonoBehaviour
         Sacrifice.SetActive(true);
         int people = Random.Range(2, 5);
         SacEvent.text = "사망자 수가 " + people.ToString() + " 증가합니다";
-        GameManager.instance.townDead += people;
+        GameManager.Instance.townDead += people;
     }
 
     public void AppearEv()
@@ -212,7 +212,7 @@ public class EndingDays : MonoBehaviour
         Appear.SetActive(true);
         int people = Random.Range(5, 8);
         AppEvent.text = "사망자 수가 " + people.ToString() + " 증가합니다";
-        GameManager.instance.townDead += people;
+        GameManager.Instance.townDead += people;
     }
 
     public void RiverEv()
@@ -221,7 +221,7 @@ public class EndingDays : MonoBehaviour
         GameObject River = obj.transform.Find("EventRiver").gameObject;
         River.SetActive(true);
         int atmos = Random.Range(10, 26);
-        GameManager.instance.townAtmosphere += atmos;
+        GameManager.Instance.townAtmosphere += atmos;
     }
 
     public void FireEv()
@@ -231,37 +231,37 @@ public class EndingDays : MonoBehaviour
         Fire.SetActive(true);
         int change = Random.Range(4, 11) * 500;
         FirEvent.text = change.ToString() + " 골드가 감소합니다.";
-        GameManager.instance.playerGold -= change;
+        GameManager.Instance.playerGold -= change;
 
-        if (GameManager.instance.playerGold < 0)
+        if (GameManager.Instance.playerGold < 0)
         {
-            GameManager.instance.playerGold = 0;
+            GameManager.Instance.playerGold = 0;
         }
     }
 
     public void AlchemEv()
     {
-        GameManager.instance.eventAlchem = false;
+        GameManager.Instance.eventAlchem = false;
         GameObject obj = GameObject.Find("Canvas").transform.Find("Events").gameObject;
         GameObject alchem = obj.transform.Find("EventAlchemist").gameObject;
         alchem.SetActive(true);
         int change = Random.Range(5, 11) * 500;
         AlchemEvent.text = change.ToString() + " 골드가 증가합니다.";
-        GameManager.instance.playerGold += change;
+        GameManager.Instance.playerGold += change;
     }
 
     public void AcrobatEv()
     {
-        GameManager.instance.eventAcrobat = false;
+        GameManager.Instance.eventAcrobat = false;
         GameObject obj = GameObject.Find("Canvas").transform.Find("Events").gameObject;
         GameObject acro = obj.transform.Find("EventAcrobat").gameObject;
         acro.SetActive(true);
         int atmos = Random.Range(10, 21);
-        GameManager.instance.townAtmosphere -= atmos;
+        GameManager.Instance.townAtmosphere -= atmos;
 
-        if(GameManager.instance.townAtmosphere < 0)
+        if(GameManager.Instance.townAtmosphere < 0)
         {
-            GameManager.instance.townAtmosphere = 0;
+            GameManager.Instance.townAtmosphere = 0;
         }
     }
 }

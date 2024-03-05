@@ -265,16 +265,16 @@ public class YarnInteractable : MonoBehaviour
     {
         if (talent == "기사")
         {
-            GameManager.instance.talents[0].isEmployed = true;
+            GameManager.Instance.talents[0].isEmployed = true;
         } else if (talent == "용병")
         {
-            GameManager.instance.talents[1].isEmployed = true;
+            GameManager.Instance.talents[1].isEmployed = true;
         } else if (talent == "곡예사")
         {
-            GameManager.instance.talents[2].isEmployed = true;
+            GameManager.Instance.talents[2].isEmployed = true;
         } else if (talent == "연금술사")
         {
-            GameManager.instance.talents[3].isEmployed = true;
+            GameManager.Instance.talents[3].isEmployed = true;
         }
     }
 
@@ -384,16 +384,16 @@ public class YarnInteractable : MonoBehaviour
         GameObject obj = GameObject.Find("Canvas").transform.Find("ShowWeakness").gameObject;
         if(weakness == "기사")
         {
-            GameManager.instance.talents[0].haveWeakness = false;
+            GameManager.Instance.talents[0].haveWeakness = false;
         } else if(weakness == "용병")
         {
-            GameManager.instance.talents[1].haveWeakness = false;
+            GameManager.Instance.talents[1].haveWeakness = false;
         } else if(weakness == "곡예사")
         {
-            GameManager.instance.talents[2].haveWeakness = false;
+            GameManager.Instance.talents[2].haveWeakness = false;
         } else if(weakness == "연금술사")
         {
-            GameManager.instance.talents[3].haveWeakness = false;
+            GameManager.Instance.talents[3].haveWeakness = false;
         }
         obj.SetActive(true);
     }
@@ -403,7 +403,7 @@ public class YarnInteractable : MonoBehaviour
     {
         if(type == "평민")
         {
-            GameManager.instance.playerGold -= 500 * GameManager.instance.employCommoner;
+            GameManager.Instance.playerGold -= 500 * GameManager.Instance.employCommoner;
         } else if(type == "기사")
         {
             GameObject obj = GameObject.Find("Canvas").transform.Find("EmployResult").gameObject;
@@ -411,7 +411,7 @@ public class YarnInteractable : MonoBehaviour
 
             text.SetActive(true);
 
-            GameManager.instance.playerGold -= 1500;
+            GameManager.Instance.playerGold -= 1500;
         } else if(type == "용병")
         {
             GameObject obj = GameObject.Find("Canvas").transform.Find("EmployResult").gameObject;
@@ -419,7 +419,7 @@ public class YarnInteractable : MonoBehaviour
 
             text.SetActive(true);
 
-            GameManager.instance.playerGold -= 2500;
+            GameManager.Instance.playerGold -= 2500;
         }
         else if (type == "연금술사")
         {
@@ -428,7 +428,7 @@ public class YarnInteractable : MonoBehaviour
 
             text.SetActive(true);
 
-            GameManager.instance.playerGold -= 2500;
+            GameManager.Instance.playerGold -= 2500;
         }
         else if (type == "곡예사")
         {
@@ -437,20 +437,20 @@ public class YarnInteractable : MonoBehaviour
 
             text.SetActive(true);
 
-            GameManager.instance.playerGold -= 2000;
+            GameManager.Instance.playerGold -= 2000;
         }
     } 
 
     [YarnCommand("increase_gold")]
     public void IncreaseGold(int amount)
     {
-        GameManager.instance.playerGold += amount;
+        GameManager.Instance.playerGold += amount;
     }
 
     [YarnCommand("increase_atmos")]
     public void IncreaseAtmos(int num)
     {
-        GameManager.instance.townAtmosphere += num;
+        GameManager.Instance.townAtmosphere += num;
     }
 
     [YarnCommand("set_visited")]

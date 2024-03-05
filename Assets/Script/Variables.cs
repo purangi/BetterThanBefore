@@ -17,7 +17,7 @@ public class Variables : MonoBehaviour
             //Debug.Log("°ñµå´Â " + gold);
         } else
         {
-            gold = GameManager.instance.playerGold;
+            gold = GameManager.Instance.playerGold;
             //Debug.Log("°ñµå´Â " + gold);
         }
     }
@@ -32,7 +32,7 @@ public class Variables : MonoBehaviour
         }
         else
         {
-            atmos = GameManager.instance.townAtmosphere;
+            atmos = GameManager.Instance.townAtmosphere;
             //Debug.Log("ºÐÀ§±â " + atmos);
         }
     }

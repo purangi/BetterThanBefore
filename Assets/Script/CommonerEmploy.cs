@@ -34,7 +34,7 @@ public class CommonerEmploy : MonoBehaviour
     }
     public void plazaDialogue()
     {
-        GameManager.instance.ObjectClicked("PlazaDialogue");
+        GameManager.Instance.ObjectClicked("PlazaDialogue");
     }
 
     [YarnCommand("commoner_employ")]
@@ -56,7 +56,7 @@ public class CommonerEmploy : MonoBehaviour
     {
         if(state == 0)
         {
-            if ((commonerNum + 1) * 500 <= GameManager.instance.playerGold)
+            if ((commonerNum + 1) * 500 <= GameManager.Instance.playerGold)
             {
                 commonerNum++;
             }
@@ -113,11 +113,11 @@ public class CommonerEmploy : MonoBehaviour
         //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
         //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
 
-        if (GameManager.instance.playerGold - 500 * commonerNum >= 0)
+        if (GameManager.Instance.playerGold - 500 * commonerNum >= 0)
         {
-            GameManager.instance.playerGold -= 500 * commonerNum;
+            GameManager.Instance.playerGold -= 500 * commonerNum;
             exBuild.AcquireCharacter(commoners, commonerNum);
-            GameManager.instance.employCommoner += commonerNum;
+            GameManager.Instance.employCommoner += commonerNum;
         }
         else
         {
@@ -136,8 +136,8 @@ public class CommonerEmploy : MonoBehaviour
         //ExploreBuild ex = GameObject.Find("ExploreBuild").GetComponent<ExploreBuild>();
         //Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
 
-        GameManager.instance.townAtmosphere += 5 * GameManager.instance.employCommoner;
+        GameManager.Instance.townAtmosphere += 5 * GameManager.Instance.employCommoner;
         exBuild.AcquireCharacter(commoners, commonerNum);
-        GameManager.instance.employCommoner += commonerNum;
+        GameManager.Instance.employCommoner += commonerNum;
     }
 }

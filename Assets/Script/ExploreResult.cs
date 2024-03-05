@@ -46,19 +46,19 @@ public class ExploreResult : MonoBehaviour
             ResultSlot clues = Clue.GetComponent<ResultSlot>();
             Inventory inven = GameObject.Find("Inventory").GetComponent<Inventory>();
 
-            inven.AcquireItem(clueObj[GameManager.instance.getClues].transform.GetComponent<ItemPickUp>().item);
+            inven.AcquireItem(clueObj[GameManager.Instance.getClues].transform.GetComponent<ItemPickUp>().item);
 
-            clues.itemImage.sprite = clueImages[GameManager.instance.getClues];
-            GameManager.instance.getClues += 1;
-            GameManager.instance.townAtmosphere -= 10;
-            clues.AddResult("단서 획득 <color=red>" + GameManager.instance.getClues + "</color> / 5");
+            clues.itemImage.sprite = clueImages[GameManager.Instance.getClues];
+            GameManager.Instance.getClues += 1;
+            GameManager.Instance.townAtmosphere -= 10;
+            clues.AddResult("단서 획득 <color=red>" + GameManager.Instance.getClues + "</color> / 5");
             
         } else if(success == "실패")
         {
             result_text.text = "탐사 실패";
             ResultSlot clues = Clue.GetComponent<ResultSlot>();
-            GameManager.instance.townAtmosphere += 10;
-            clues.AddResult("단서 미획득 " + GameManager.instance.getClues + "/ 5");
+            GameManager.Instance.townAtmosphere += 10;
+            clues.AddResult("단서 미획득 " + GameManager.Instance.getClues + "/ 5");
         }
     }
 
@@ -115,19 +115,19 @@ public class ExploreResult : MonoBehaviour
             if (item.itemName == "Mercenary")
             {
                 int gold = Random.Range(5, 11) * 500;
-                GameManager.instance.playerGold += gold;
+                GameManager.Instance.playerGold += gold;
 
                 returnText = "용병이 <color=red>생환</color>하여 <color=red>" + gold.ToString() + "G</color>를 가져왔습니다.";
             } else if(item.itemName == "Acrobat")
             {
-                GameManager.instance.eventAcrobat = true;
+                GameManager.Instance.eventAcrobat = true;
                 returnText = "곡예사가 <color=red>생환</color>하여 축제 이벤트 발생에 <color=red>성공</color>했습니다.";
             }
             else if (item.itemName == "Alchem")
             {
                 if(result == "성공")
                 {
-                    GameManager.instance.eventAlchem = true;
+                    GameManager.Instance.eventAlchem = true;
                     returnText = "연금술사가 <color=red>탐사 성공</color>하여 농지 이벤트 발생에 <color=red>성공</color>했습니다.";
                 }
             }
@@ -158,7 +158,7 @@ public class ExploreResult : MonoBehaviour
                 Debug.Log("평민 죽음");
             } */
 
-            GameManager.instance.townDead += 1;
+            GameManager.Instance.townDead += 1;
         }
 
         return returnText;
@@ -204,48 +204,48 @@ public class ExploreResult : MonoBehaviour
         Image Fade = obj.GetComponent<Image>();
 
         //day 넘기는거 GameManager로 구현 예정
-        GameManager.instance.Days += 1;
+        GameManager.Instance.Days += 1;
 
-        if (GameManager.instance.Days == 1)
+        if (GameManager.Instance.Days == 1)
         {
             day_text.text = "첫째 날";
         }
-        else if (GameManager.instance.Days == 2)
+        else if (GameManager.Instance.Days == 2)
         {
             day_text.text = "둘째 날";
         }
-        else if (GameManager.instance.Days == 3)
+        else if (GameManager.Instance.Days == 3)
         {
             day_text.text = "셋째 날";
         }
-        else if (GameManager.instance.Days == 4)
+        else if (GameManager.Instance.Days == 4)
         {
             day_text.text = "넷째 날";
         }
-        else if (GameManager.instance.Days == 5)
+        else if (GameManager.Instance.Days == 5)
         {
             day_text.text = "다섯째 날";
         }
-        else if (GameManager.instance.Days == 6)
+        else if (GameManager.Instance.Days == 6)
         {
             day_text.text = "여섯째 날";
         }
-        else if (GameManager.instance.Days == 7)
+        else if (GameManager.Instance.Days == 7)
         {
             day_text.text = "일곱째 날";
         }
-        else if (GameManager.instance.Days == 8)
+        else if (GameManager.Instance.Days == 8)
         {
             day_text.text = "여덟째 날";
         }
-        else if (GameManager.instance.Days == 9)
+        else if (GameManager.Instance.Days == 9)
         {
             day_text.text = "아홉째 날";
         }
-        else if (GameManager.instance.Days == 10)
+        else if (GameManager.Instance.Days == 10)
         {
             day_text.text = "열째 날";
-        } else if(GameManager.instance.Days >= 11)
+        } else if(GameManager.Instance.Days >= 11)
         {
             day_text.text = "동굴에서 소리가 들려온다···";
         }
@@ -281,18 +281,18 @@ public class ExploreResult : MonoBehaviour
 
     void CheckEnding()
     {
-        if (GameManager.instance.Days >= 11)
+        if (GameManager.Instance.Days >= 11)
         {
-            if (GameManager.instance.getClues < 5)
+            if (GameManager.Instance.getClues < 5)
                 SceneManager.LoadScene("BadEnding");
         }
-        else if (GameManager.instance.townDead >= 20)
+        else if (GameManager.Instance.townDead >= 20)
         {
             SceneManager.LoadScene("BadEnding");
         }
-        else if (GameManager.instance.getClues >= 5)
+        else if (GameManager.Instance.getClues >= 5)
         {
-            if (GameManager.instance.townAtmosphere > 50)
+            if (GameManager.Instance.townAtmosphere > 50)
             {
                 SceneManager.LoadScene("NormalEnding");
             }

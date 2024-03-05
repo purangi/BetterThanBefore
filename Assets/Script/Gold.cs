@@ -24,7 +24,7 @@ public class Gold : MonoBehaviour
             MyGold = 7000;
         } else
         {
-            MyGold = GameManager.instance.playerGold;
+            MyGold = GameManager.Instance.playerGold;
 
         }
         GoldText.text = MyGold.ToString() + " G";

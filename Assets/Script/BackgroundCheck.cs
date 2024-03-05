@@ -18,10 +18,10 @@ public class BackgroundCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.townAtmosphere > 30 && GameManager.instance.townAtmosphere <= 50)
+        if(GameManager.Instance.townAtmosphere > 30 && GameManager.Instance.townAtmosphere <= 50)
         {
             img_render.sprite = bad1;
-        } else if(GameManager.instance.townAtmosphere > 50)
+        } else if(GameManager.Instance.townAtmosphere > 50)
         {
             img_render.sprite = bad2;
         } else

@@ -17,7 +17,7 @@ public class Population : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dead = GameManager.instance.townDead;
+        dead = GameManager.Instance.townDead;
         DeadText.text = dead.ToString();
     }
 

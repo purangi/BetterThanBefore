@@ -31,7 +31,7 @@ public class ExploreBuild : MonoBehaviour
 
     void Start()
     {
-        talents = GameManager.instance.talents;
+        talents = GameManager.Instance.talents;
 
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
         slots2 = go_SlotsParent2.GetComponentsInChildren<Slot>();
@@ -75,10 +75,10 @@ public class ExploreBuild : MonoBehaviour
         {
             exp.AcquireCharacter(Acrobat.transform.GetComponent<ItemPickUp>().item, 1);
         }
-        if (GameManager.instance.employCommoner >= 1)
+        if (GameManager.Instance.employCommoner >= 1)
         {
             Item commoner = GameObject.Find("Commoners").GetComponent<ItemPickUp>().item;
-            exp.AcquireCharacter(commoner, GameManager.instance.employCommoner);
+            exp.AcquireCharacter(commoner, GameManager.Instance.employCommoner);
         }
     }
 
@@ -229,7 +229,7 @@ public class ExploreBuild : MonoBehaviour
                 isKnight = true;
             } else if(slots2[i].item.itemName == "Commoner")
             {
-                GameManager.instance.employCommoner -= 1;
+                GameManager.Instance.employCommoner -= 1;
             }
         }
 

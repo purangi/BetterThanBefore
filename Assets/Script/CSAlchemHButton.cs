@@ -21,7 +21,7 @@ public class CSAlchemHButton : MonoBehaviour
 
     public bool IsCursorAssemble = false;
 
-    private List<Talent> talents = GameManager.instance.talents;
+    private List<Talent> talents = GameManager.Instance.talents;
     void Start()
     {
     }
@@ -131,6 +131,6 @@ public class CSAlchemHButton : MonoBehaviour
             talents[3].haveWeakness = true;
         }
 
-        GameManager.instance.talents = talents;
+        GameManager.Instance.talents = talents;
     }
 }

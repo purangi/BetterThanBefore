@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     GameObject drugObj;
 
-    private List<Talent> talents = GameManager.instance.talents;
+    private List<Talent> talents = GameManager.Instance.talents;
 
     void Start()
     {
@@ -92,7 +92,7 @@ public class Inventory : MonoBehaviour
 
         for (int i = 1; i <= 5; i++)
         {
-            if (GameManager.instance.getClues == i)
+            if (GameManager.Instance.getClues == i)
             {
                 for(int j = 0; j < i; j++)
                 {
